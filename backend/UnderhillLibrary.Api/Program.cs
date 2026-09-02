@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using UnderhillLibrary.Api.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+var connString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+                 throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddDbContext<UnderhillLibraryDbContext>(options => 
+    options.UseMySql(connString, ServerVersion.AutoDetect(connString)));
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
