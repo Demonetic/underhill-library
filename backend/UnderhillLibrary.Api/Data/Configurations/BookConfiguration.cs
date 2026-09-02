@@ -39,6 +39,6 @@ public class BookConfiguration : IEntityTypeConfiguration<Book>
         builder.Property(b => b.CreatedAt)
             .HasColumnName("created_at")
             .IsRequired()
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
     }
 }

@@ -24,6 +24,6 @@ public class AppUserConfiguration : IEntityTypeConfiguration<AppUser>
         builder.Property(a => a.CreatedAt)
             .HasColumnName("created_at")
             .IsRequired()
-            .HasDefaultValueSql("CURRENT_TIMESTAMP");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP(6)");
     }
 }
