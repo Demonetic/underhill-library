@@ -28,4 +28,21 @@ public class AuthController : ControllerBase
 
        return StatusCode(201);
     }
+
+    [HttpPost]
+    [Route("login")]
+    public async Task<IActionResult> Login(LoginRequest request)
+    {
+        string? token = await _authService.LoginAsync(request);
+
+        if (token == null)
+        {
+            return Unauthorized();
+        }
+
+        return Ok(new LoginResponse
+        {
+            Token = token
+        });
+    }
 }
