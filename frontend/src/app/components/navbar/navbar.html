@@ -1,0 +1,52 @@
+<!-- Responsive Bootstrap navigation bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+
+    <!-- Brand link with a Font Awesome book icon -->
+    <a class="navbar-brand" routerLink="/books">
+      <i class="fa-solid fa-book-open me-2"></i>
+      Underhill Library
+    </a>
+
+    <!-- Button that opens and closes the navigation menu on smaller screens -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#mainNavigation"
+      aria-controls="mainNavigation"
+      aria-expanded="false"
+      aria-label="Öppna navigationsmenyn">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible navigation links -->
+    <div class="collapse navbar-collapse" id="mainNavigation">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/books" routerLinkActive="active">
+            Böcker
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/quotes" routerLinkActive="active">
+            Mina citat
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="active">
+            Logga in
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" routerLinkActive="active">
+            Registrera
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
