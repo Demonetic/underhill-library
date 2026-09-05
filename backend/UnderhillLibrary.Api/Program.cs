@@ -39,6 +39,7 @@ builder.Services
 builder.Services.AddScoped<IPasswordHasher<AppUser>, PasswordHasher<AppUser>>();
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<BookService>();
+builder.Services.AddScoped<QuoteService>();
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
