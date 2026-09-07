@@ -1,1 +1,56 @@
-<p>register works!</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h3 text-center mb-4">Skapa konto</h1>
+
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+            <!-- Username field -->
+            <div class="mb-3">
+              <label for="username" class="form-label">
+                Användarnamn
+              </label>
+
+              <input id="username" type="text" class="form-control" formControlName="username" autocomplete="username"
+                     [class.is-invalid]="
+                     registerForm.controls.username.invalid &&
+                     registerForm.controls.username.touched">
+
+              <div class="invalid-feedback">
+                Användarnamnet måste innehålla mellan 3-50 tecken.
+              </div>
+            </div>
+
+            <!-- Password field -->
+            <div class="mb-4">
+              <label for="password" class="form-label">
+                Lösenord
+              </label>
+
+              <input id="password" type="password" class="form-control" formControlName="password" autocomplete="new-password"
+                     [class.is-invalid]="
+                     registerForm.controls.password.invalid &&
+                     registerForm.controls.password.touched">
+
+              <div class="invalid-feedback">
+                Lösenordet måste innehålla mellan 8-100 tecken.
+              </div>
+            </div>
+
+            @if (errorMessage) {
+              <div class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+            }
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="isSubmitting">
+              <i class="fa-solid fa-user-plus me-2"></i>
+              {{ isSubmitting ? 'Registrerar...' : 'Registrera' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,56 @@
-<p>login works!</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h1 class="h3 text-center mb-4">Logga in</h1>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+            <!-- Username field -->
+            <div class="mb-3">
+              <label for="username" class="form-label">
+                Användarnamn
+              </label>
+
+              <input id="username" type="text" class="form-control" formControlName="username" autocomplete="username"
+                     [class.is-invalid]="
+                      loginForm.controls.username.invalid &&
+                      loginForm.controls.username.touched">
+
+              <div class="invalid-feedback">
+                Ange ett giltigt användarnamn.
+              </div>
+            </div>
+
+            <!-- Password field -->
+            <div class="mb-4">
+              <label for="password" class="form-label">
+                Lösenord
+              </label>
+
+              <input id="password" type="password" class="form-control" formControlName="password" autocomplete="current-password"
+                     [class.is-invalid]="
+                     loginForm.controls.password.invalid &&
+                     loginForm.controls.password.touched">
+
+              <div class="invalid-feedback">
+                Ange ett giltigt lösenord.
+              </div>
+            </div>
+
+            @if (errorMessage) {
+              <div class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+              </div>
+            }
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="isSubmitting">
+              <i class="fa-solid fa-right-to-bracket me-2"></i>
+              {{ isSubmitting ? 'Loggar in...' : 'Logga in' }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

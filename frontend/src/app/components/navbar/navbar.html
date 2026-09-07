@@ -23,29 +23,37 @@
     <!-- Collapsible navigation links -->
     <div class="collapse navbar-collapse" id="mainNavigation">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/books" routerLinkActive="active">
-            Böcker
-          </a>
-        </li>
+        @if (authService.isLoggedIn()) {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/books" routerLinkActive="active">
+              Böcker
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/quotes" routerLinkActive="active">
-            Mina citat
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/quotes" routerLinkActive="active">
+              Mina citat
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="active">
-            Logga in
-          </a>
-        </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link text-start w-100" (click)="logout()">
+              Logga ut
+            </button>
+          </li>
+        } @else {
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">
+              Logga in
+            </a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/register" routerLinkActive="active">
-            Registrera
-          </a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register" routerLinkActive="active">
+              Registrera
+            </a>
+          </li>
+        }
       </ul>
     </div>
   </div>
