@@ -1,1 +1,68 @@
-<p>books works!</p>
+<div class="container py-4">
+  <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+    <div>
+      <h1 class="h2 mb-1">Mina böcker</h1>
+      <p class="text-muted mb-0">
+        Här visas böckerna i ditt bibliotek.
+      </p>
+    </div>
+
+    <a class="btn btn-primary" routerLink="/books/new">
+      <i class="fa-solid fa-plus me-2"></i>
+      Lägg till ny bok
+    </a>
+  </div>
+
+  @if (isLoading) {
+    <output class="text-center py-5 d-block">
+      <span class="spinner-border" aria-hidden="true"></span>
+      <span class="visually-hidden">Laddar böcker...</span>
+    </output>
+  } @else if (errorMessage) {
+    <div class="alert alert-danger" role="alert">
+      {{ errorMessage }}
+    </div>
+  } @else if (books.length === 0) {
+    <output class="alert alert-info d-block">
+      Du har inte lagt till några böcker ännu.
+    </output>
+  } @else {
+    <div class="row g-3">
+      @for (book of books; track book.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 shadow-sm">
+            <div class="card-body">
+              <h2 class="h5 card-title">{{ book.title }}</h2>
+
+              <p class="card-text mb-2">
+                <strong>Författare:</strong> {{ book.author }}
+              </p>
+
+              <p class="card-text mb-2">
+                <strong>Publicerad: </strong> {{ book.publicationDate }}
+              </p>
+
+              @if (book.genre) {
+                <p class="card-text mb-2">
+                  <strong>Genre:</strong> {{ book.genre }}
+                </p>
+              }
+
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-outline-primary" [routerLink]="['/books', book.id, 'edit']">
+                  <i class="fa-solid fa-pen me-2"></i>
+                  Redigera
+                </a>
+
+                <button type="button" class="btn btn-outline-danger" (click)="deleteBook(book.id)">
+                  <i class="fa-solid fa-trash me-2"></i>
+                  Ta bort
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  }
+</div>
