@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthService } from '../../services/auth-service';
 import { LoginRequest } from '../../models/auth.models';
@@ -14,6 +14,7 @@ import { LoginRequest } from '../../models/auth.models';
 export class Login {
   errorMessage = '';
   isSubmitting = false;
+  sessionExpired = false;
 
   loginForm = new FormGroup({
     username: new FormControl('', {
@@ -36,9 +37,10 @@ export class Login {
 
   constructor(
     private readonly authService: AuthService,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly route: ActivatedRoute
   ) {
-
+    this.sessionExpired = this.route.snapshot.queryParamMap.get('reason') === 'session-expired';
   }
 
   onSubmit(): void {

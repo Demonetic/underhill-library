@@ -5,6 +5,11 @@
         <div class="card-body p-4">
           <h1 class="h3 text-center mb-4">Logga in</h1>
 
+          @if (sessionExpired) {
+            <div class="alert alert-info" role="alert">
+              Din session har gått ut. Logga in igen.
+            </div>
+          }
           <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
             <!-- Username field -->
             <div class="mb-3">
