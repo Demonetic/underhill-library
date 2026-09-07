@@ -18,7 +18,7 @@ export class Navbar {
   }
 
   logout(): void {
-    this.authService.logOut();
+    this.authService.logout();
     void this.router.navigate(['/login']);
   }
 

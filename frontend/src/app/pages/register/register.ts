@@ -59,7 +59,7 @@ export class Register {
       error: (error) => {
         this.isSubmitting = false;
 
-        if (error.status == 409) {
+        if (error.status === 409) {
           this.errorMessage = 'Användarnamnet är redan registrerat.';
         } else {
           this.errorMessage = 'Registreringen misslyckades. Försök igen.'
