@@ -107,10 +107,7 @@ export class BookForm implements OnInit {
       author: values.author,
       genre: values.genre.trim() === '' ? null : values.genre.trim(),
       publicationDate: values.publicationDate,
-      description:
-        values.description.trim() === ''
-          ? null
-          : values.description.trim()
+      description: values.description.trim() === '' ? null : values.description.trim()
     };
 
     this.errorMessage = '';
