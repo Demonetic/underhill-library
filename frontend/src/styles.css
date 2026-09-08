@@ -1,1 +1,63 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-background: #f7f4ed;
+  --color-surface: #fffdf8;
+  --color-text: #2f2a22;
+  --color-primary: #526b59;
+  --color-primary-hover: #31492d;
+  --color-primary-dark: #3f5546;
+  --color-navbar: #34483b;
+  --color-border: #d6c8ad;
+  --color-danger: #945148;
+  --color-danger-dark: #7f4039;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+.navbar.bg-dark {
+  background-color: var(--color-navbar) !important;
+}
+
+.navbar-brand {
+  color: var(--color-surface);
+}
+
+.btn-primary {
+  --bs-btn-bg: #526b59;
+  --bs-btn-border-color: #526b59;
+  --bs-btn-hover-bg: #435849;
+  --bs-btn-hover-border-color: #394b3e;
+  --bs-btn-disabled-bg: #526b59;
+  --bs-btn-disabled-border-color: #526b59;
+}
+
+.form-control:focus {
+  border-color: #718a77;
+  box-shadow: 0 0 0 0.25rem rgba(82, 107, 89, 0.25);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-outline-danger {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+  color: #ffffff;
+  background-color: var(--color-danger);
+  border-color: var(--color-danger-dark);
+}
