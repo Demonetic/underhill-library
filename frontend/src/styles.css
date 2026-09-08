@@ -11,6 +11,20 @@
   --color-danger-dark: #7f4039;
 }
 
+[data-theme="dark"] {
+  --color-background: #1c211d;
+  --color-surface: #272e29;
+  --color-text: #eee9df;
+  --color-primary: #8fa895;
+  --color-primary-hover: #a5b9aa;
+  --color-primary-dark: #718a77;
+  --color-navbar: #20362b;
+  --color-border: #465148;
+  --color-danger: #d18479;
+  --color-danger-dark: #b7685f;
+  --color-text-muted: #aeb9b0;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -20,8 +34,10 @@ body {
   background-color: var(--color-navbar) !important;
 }
 
-.navbar-brand {
-  color: var(--color-surface);
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:focus {
+  color: #fffdf8;
 }
 
 .btn-primary {
@@ -34,6 +50,8 @@ body {
 }
 
 .form-control:focus {
+  background-color: var(--color-surface);
+  color: var(--color-text);
   border-color: #718a77;
   box-shadow: 0 0 0 0.25rem rgba(82, 107, 89, 0.25);
 }
@@ -60,4 +78,32 @@ body {
   color: #ffffff;
   background-color: var(--color-danger);
   border-color: var(--color-danger-dark);
+}
+
+.card {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.form-control {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.form-control::placeholder {
+  color: var(--color-text);
+  opacity: 0.6;
+}
+
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .text-body-secondary,
+[data-theme="dark"] .form-text {
+  color: var(--color-text-muted) !important;
+}
+
+[data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.9;
 }

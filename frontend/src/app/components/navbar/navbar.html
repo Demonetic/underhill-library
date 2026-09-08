@@ -54,6 +54,14 @@
             </a>
           </li>
         }
+
+        <li class="nav-item ms-lg-4">
+          <button type="button" class="nav-link" (click)="toggleTheme()"
+                  [attr.aria-label]="isDarkMode ? 'Aktivera ljust tema' : 'Aktivera mörkt tema'">
+
+            <i class="fa-solid me-1" [class.fa-sun]="isDarkMode" [class.fa-moon]="!isDarkMode"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </div>
