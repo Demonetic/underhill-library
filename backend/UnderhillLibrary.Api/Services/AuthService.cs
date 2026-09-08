@@ -43,23 +43,27 @@ public class AuthService
         // Add five default quotes for the new user
         newUser.Quotes.Add(new Quote
         {
-            Text = "Citat 1"
+            Text = "It's the job that's never started as takes longest to finish.",
+            Author = "J.R.R. Tolkien, The Fellowship of the Ring"
         });
         newUser.Quotes.Add(new Quote
         {
-            Text = "Citat 2"
+            Text = "There is nothing like looking, if you want to find something.",
+            Author = "J.R.R. Tolkien, The Hobbit"
         });
         newUser.Quotes.Add(new Quote
         {
-            Text = "Citat 3"
+            Text = "All's well as ends Better!",
+            Author = "J.R.R. Tolkien, The Return of the King"
         });
         newUser.Quotes.Add(new Quote
         {
-            Text = "Citat 4"
+            Text = "Where there's life there's hope.",
+            Author = "J.R.R. Tolkien, The Two Towers"
         });
         newUser.Quotes.Add(new Quote
         {
-            Text = "Citat 5"
+            Text = "Someone else always has to carry on the story."
         });
         
         // Save the new user and their default quotes to the db
