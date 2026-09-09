@@ -46,11 +46,12 @@
                 <p class="card-text mb-2">
                   <strong>Genre:</strong> {{ book.genre }}
                 </p>
+              }
 
-                @if (book.description) {
-                  <p class="card-text mb-2">
-                    <strong>Beskrivning:</strong> {{ book.description }}
-                  </p>
+              @if (book.description) {
+                <p class="card-text mb-2">
+                  <strong>Beskrivning:</strong> {{ book.description }}
+                </p>
               }
 
               <div class="d-flex flex-wrap gap-2 mt-4">
